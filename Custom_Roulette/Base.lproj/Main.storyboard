@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yv-Eu-C6k">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the title for your item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yv-Eu-C6k">
                                 <rect key="frame" x="20" y="225" width="242" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -28,6 +28,9 @@
                                 <state key="normal" title="Button" image="plus.circle.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>
+                                <connections>
+                                    <action selector="addItemToCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d3b-MI-s02"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doC-fT-HgF">
                                 <rect key="frame" x="20" y="196" width="128.5" height="21"/>
@@ -83,6 +86,13 @@
                             <constraint firstItem="2gu-C1-yRZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="doC-fT-HgF" secondAttribute="trailing" constant="8" symbolic="YES" id="zb5-94-ftH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addItemButton" destination="4MF-qA-WPe" id="uy8-Ex-Fg9"/>
+                        <outlet property="collectionPickerView" destination="bgu-rI-XsM" id="3Nr-CJ-vx2"/>
+                        <outlet property="itemTitleTextField" destination="2yv-Eu-C6k" id="eOB-cb-DP6"/>
+                        <outlet property="multiplierPickerView" destination="2gu-C1-yRZ" id="QNi-8U-ghV"/>
+                        <outlet property="randomizeButton" destination="gVB-Rg-Ls4" id="zHO-AI-wTD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
