@@ -7,13 +7,14 @@
 
 import UIKit
 
-struct customItem {
+struct CustomItem: Equatable {
     let title: String
     let multiplier: Int
     init(title: String, multiplier: Int) {
         self.title = title
         self.multiplier = multiplier
     }
+    
 }
 
 class MainViewController: UIViewController {
@@ -26,11 +27,18 @@ class MainViewController: UIViewController {
     @IBOutlet weak var multiplierLabel: UILabel!
     
     //MARK:- Variables and Constants
-    var customCollection: [customItem]?
+    var customCollection = [CustomItem]() {
+        didSet {
+            configureRandomButton()
+            collectionPickerView.reloadAllComponents()
+            dump(customCollection)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureController()
+        configureRandomButton()
     }
     private func configureController() {
         itemTitleTextField.delegate = self
@@ -38,29 +46,48 @@ class MainViewController: UIViewController {
         collectionPickerView.dataSource = self
         multiplierPickerView.delegate = self
         collectionPickerView.delegate = self
-        
         multiplierLabel.adjustsFontSizeToFitWidth = true
         multiplierLabel.sizeToFit()
     }
+    private func configureRandomButton() {
+        if customCollection.count == 0 {
+            randomizeButton.isEnabled = false
+            randomizeButton.backgroundColor = .systemGray4
+        } else {
+            randomizeButton.isEnabled = true
+            randomizeButton.backgroundColor = #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1)
+        }
+    }
     @IBAction func addItemToCollection(_ sender: UIButton) {
-        print("Add to collection")
+        let multiplier = multiplierPickerView.selectedRow(inComponent: 0) + 1
+        let item = CustomItem(title: itemTitleTextField.text ?? "Error", multiplier: multiplier)
+        let itemWithMultiplier = Array(repeating: item, count: item.multiplier)
+        
+        customCollection.append(item)
+        customCollection.append(contentsOf: itemWithMultiplier)
     }
     @IBAction func randomizeButtonPressed(_ sender: UIButton) {
-        print("Random item")
+        guard let randomItem = customCollection.randomElement() else { return }
+        guard let index = customCollection.firstIndex(of: randomItem) else {
+            return
+        }
+        collectionPickerView.selectRow(index, inComponent: 0, animated: true)
     }
     
 }
 
 //MARK:- Extenstions
 extension MainViewController: UITextFieldDelegate {
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
 }
 
 extension MainViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == collectionPickerView {
-            let item = customCollection?[row]
-            return "\(item?.title ?? "ERROR") (\(item?.multiplier ?? -1)X)"
+            let item = customCollection[row]
+            return "\(item.title) (\(item.multiplier)X)"
         } else {
             let array = Array(1...100)
             return "\(array[row])"
@@ -75,7 +102,7 @@ extension MainViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == collectionPickerView {
-            return customCollection?.count ?? 0
+            return customCollection.count
         } else {
             return 100
         }
