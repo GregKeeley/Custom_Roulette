@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var addItemButton: UIButton!
     @IBOutlet weak var collectionPickerView: UIPickerView!
     @IBOutlet weak var randomizeButton: UIButton!
+    @IBOutlet weak var multiplierLabel: UILabel!
     
     //MARK:- Variables and Constants
     var customCollection: [customItem]?
@@ -37,9 +38,15 @@ class MainViewController: UIViewController {
         collectionPickerView.dataSource = self
         multiplierPickerView.delegate = self
         collectionPickerView.delegate = self
+        
+        multiplierLabel.adjustsFontSizeToFitWidth = true
+        multiplierLabel.sizeToFit()
     }
     @IBAction func addItemToCollection(_ sender: UIButton) {
         print("Add to collection")
+    }
+    @IBAction func randomizeButtonPressed(_ sender: UIButton) {
+        print("Random item")
     }
     
 }
