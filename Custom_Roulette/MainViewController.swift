@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import DataPersistence
 
-struct CustomItem: Equatable {
+struct CustomItem: Equatable & Codable {
     let title: String
     let multiplier: Int
     init(title: String, multiplier: Int) {
@@ -27,6 +28,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var multiplierLabel: UILabel!
     
     //MARK:- Variables and Constants
+    
+    var dataPersistence = DataPersistence<[CustomItem]>(filename: "customItemCollection.plist")
+    
     var customCollection = [CustomItem]() {
         didSet {
             configureRandomButton()
@@ -73,8 +77,15 @@ class MainViewController: UIViewController {
         }
         collectionPickerView.selectRow(index, inComponent: 0, animated: true)
     }
-    
+    @IBAction func saveCollectionButtonPressed(_ sender: UIButton) {
+        do {
+            try dataPersistence.createItem(customCollection)
+        } catch {
+            
+        }
+    }
 }
+
 
 //MARK:- Extenstions
 extension MainViewController: UITextFieldDelegate {

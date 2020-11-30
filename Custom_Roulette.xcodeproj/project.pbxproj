@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880131A7257596C100A53395 /* showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880131A6257596C100A53395 /* showAlert.swift */; };
 		888ED5BD256C4AEB00F45699 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888ED5BC256C4AEB00F45699 /* AppDelegate.swift */; };
 		888ED5BF256C4AEB00F45699 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888ED5BE256C4AEB00F45699 /* SceneDelegate.swift */; };
 		888ED5C1256C4AEB00F45699 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888ED5C0256C4AEB00F45699 /* MainViewController.swift */; };
@@ -15,6 +16,7 @@
 		888ED5C9256C4AEF00F45699 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888ED5C7256C4AEF00F45699 /* LaunchScreen.storyboard */; };
 		888ED5D4256C4AEF00F45699 /* Custom_RouletteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888ED5D3256C4AEF00F45699 /* Custom_RouletteTests.swift */; };
 		888ED5DF256C4AEF00F45699 /* Custom_RouletteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888ED5DE256C4AEF00F45699 /* Custom_RouletteUITests.swift */; };
+		88931D422570338D00795F99 /* DataPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 88931D412570338D00795F99 /* DataPersistence */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		880131A6257596C100A53395 /* showAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showAlert.swift; sourceTree = "<group>"; };
 		888ED5B9256C4AEB00F45699 /* Custom_Roulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Custom_Roulette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		888ED5BC256C4AEB00F45699 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		888ED5BE256C4AEB00F45699 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88931D422570338D00795F99 /* DataPersistence in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +105,7 @@
 			children = (
 				888ED5BC256C4AEB00F45699 /* AppDelegate.swift */,
 				888ED5BE256C4AEB00F45699 /* SceneDelegate.swift */,
+				880131A6257596C100A53395 /* showAlert.swift */,
 				888ED5C0256C4AEB00F45699 /* MainViewController.swift */,
 				888ED5C2256C4AEB00F45699 /* Main.storyboard */,
 				888ED5C5256C4AEF00F45699 /* Assets.xcassets */,
@@ -144,6 +149,9 @@
 			dependencies = (
 			);
 			name = Custom_Roulette;
+			packageProductDependencies = (
+				88931D412570338D00795F99 /* DataPersistence */,
+			);
 			productName = Custom_Roulette;
 			productReference = 888ED5B9256C4AEB00F45699 /* Custom_Roulette.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +223,9 @@
 				Base,
 			);
 			mainGroup = 888ED5B0256C4AEB00F45699;
+			packageReferences = (
+				88931D402570338D00795F99 /* XCRemoteSwiftPackageReference "datapersistence" */,
+			);
 			productRefGroup = 888ED5BA256C4AEB00F45699 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,6 +272,7 @@
 				888ED5C1256C4AEB00F45699 /* MainViewController.swift in Sources */,
 				888ED5BD256C4AEB00F45699 /* AppDelegate.swift in Sources */,
 				888ED5BF256C4AEB00F45699 /* SceneDelegate.swift in Sources */,
+				880131A7257596C100A53395 /* showAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +607,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		88931D402570338D00795F99 /* XCRemoteSwiftPackageReference "datapersistence" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/datapersistence";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		88931D412570338D00795F99 /* DataPersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88931D402570338D00795F99 /* XCRemoteSwiftPackageReference "datapersistence" */;
+			productName = DataPersistence;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 888ED5B1256C4AEB00F45699 /* Project object */;
 }

@@ -69,10 +69,21 @@
                                     <action selector="addItemToCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d3b-MI-s02"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWv-DE-nZW">
+                                <rect key="frame" x="327" y="44" width="67" height="29.5"/>
+                                <state key="normal" title="Save" image="square.and.arrow.down" catalog="system">
+                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveCollectionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VUJ-Wd-bjy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="cWv-DE-nZW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1Qj-y2-E3G"/>
                             <constraint firstItem="4MF-qA-WPe" firstAttribute="centerY" secondItem="2gu-C1-yRZ" secondAttribute="centerY" id="3Z1-w7-Tpw"/>
                             <constraint firstItem="4MF-qA-WPe" firstAttribute="leading" secondItem="2gu-C1-yRZ" secondAttribute="trailing" constant="20" id="3aV-Ap-G0P"/>
                             <constraint firstItem="2gu-C1-yRZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.133929" id="4Qv-YU-PUE"/>
@@ -94,6 +105,7 @@
                             <constraint firstItem="gVB-Rg-Ls4" firstAttribute="top" secondItem="bgu-rI-XsM" secondAttribute="bottom" constant="8" symbolic="YES" id="nTK-ji-0pq"/>
                             <constraint firstItem="2gu-C1-yRZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="p8Q-uI-IOx"/>
                             <constraint firstItem="2yv-Eu-C6k" firstAttribute="top" secondItem="doC-fT-HgF" secondAttribute="bottom" constant="8" symbolic="YES" id="pEZ-7k-yb7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cWv-DE-nZW" secondAttribute="trailing" constant="20" id="qDZ-j9-02h"/>
                             <constraint firstItem="2gu-C1-yRZ" firstAttribute="top" secondItem="rxg-KV-Vny" secondAttribute="bottom" constant="9" id="sjt-GO-xE0"/>
                             <constraint firstItem="bgu-rI-XsM" firstAttribute="top" secondItem="2gu-C1-yRZ" secondAttribute="bottom" constant="8" id="tpv-To-5HG"/>
                         </constraints>
@@ -114,8 +126,12 @@
     </scenes>
     <resources>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
